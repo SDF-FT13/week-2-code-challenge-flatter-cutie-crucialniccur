@@ -2,7 +2,9 @@
 //access elements in global scope
 let bar = document.querySelector("#character-bar");
 let animalName = document.querySelector("#name");
+console.log(animalName);
 let animalImage = document.querySelector("#image");
+console.log(animalImage);
 
 fetch("http://localhost:3000/characters")
   .then((res) => res.json())
