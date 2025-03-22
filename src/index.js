@@ -52,4 +52,7 @@ form.addEventListener("submit", (e) => {
   //   input = votes.value;
   //   console.log(votes.value);
   //   votes = voteCounter;
+
+  // clearing the form
+  document.querySelector("#votes").value = "";
 });
