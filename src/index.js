@@ -37,17 +37,20 @@ fetch("http://localhost:3000/characters")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //   console.log(e.target);
-  //   let votes = document.querySelector("#votes").value;
+  let votes = document.querySelector("#votes").value;
   // get value of votes , should be a number
-  let votes = parseInt(document.querySelector("#votes").value) || 0;
-  let voteCounter = document.querySelector("#vote-count");
+  //   let votes = parseInt(document.querySelector("#votes").value) || 0;
+  //   let voteCounter = document.querySelector("#vote-count");
   // update voteCounter value based on the input from user
-  voteCounter.textContent = votes;
+  //   voteCounter.textContent = votes;
 
   //   let voteCounter = document.querySelector("#vote-count").textContent;
-  //   voteCounter.textContent = votes;
-  console.log(voteCounter);
-  console.log(votes);
+  let voteCounter = document.querySelector("#vote-count");
+
+  voteCounter.textContent = votes;
+
+  //   console.log(votes);
+  //   console.log(voteCounter);
 
   //   input = votes.value;
   //   console.log(votes.value);
