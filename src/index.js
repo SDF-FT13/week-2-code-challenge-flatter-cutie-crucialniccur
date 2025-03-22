@@ -36,6 +36,7 @@ fetch("http://localhost:3000/characters")
 // add a submit event listener to the form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //   votes = document.querySelector("#votes");
-  //   console.log(e.votes.textContent);
+  //   console.log(e.target);
+  votes = document.querySelector("#votes");
+  console.log(votes.value);
 });
