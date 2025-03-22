@@ -37,6 +37,8 @@ fetch("http://localhost:3000/characters")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //   console.log(e.target);
-  votes = document.querySelector("#votes");
-  console.log(votes.value);
+  votes = document.querySelector("#votes").value; //  console.log(votes);
+  //   input = votes.value;
+
+  //   console.log(votes.value);
 });
