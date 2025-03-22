@@ -7,7 +7,7 @@ let animalImage = document.querySelector("#image"); // console.log(animalImage);
 let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
 let form = document.querySelector("#votes-form");
-console.log(form);
+// console.log(form);
 
 //the fetch
 fetch("http://localhost:3000/characters")
@@ -32,3 +32,10 @@ fetch("http://localhost:3000/characters")
   .catch((hitlafu) => {
     console.error(hitlafu);
   });
+
+// add a submit event listener to the form
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //   votes = document.querySelector("#votes");
+  //   console.log(e.votes.textContent);
+});
