@@ -5,9 +5,6 @@ let animalName = document.querySelector("#name");
 // console.log(animalName);
 let animalImage = document.querySelector("#image");
 // console.log(animalImage);
-// select spans in the character-bar
-let spans = document.querySelectorAll("#character-bar span");
-console.log(spans);
 
 fetch("http://localhost:3000/characters")
   .then((res) => res.json())
@@ -19,6 +16,11 @@ fetch("http://localhost:3000/characters")
       span.textContent = item.name;
       //append span to bar as child
       bar.appendChild(span);
+
+      //add event listeners to the spans
+      span.addEventListener("click", (e) => {
+        console.log(e.target.textContent);
+      });
     });
   })
   .catch((hitlafu) => {
