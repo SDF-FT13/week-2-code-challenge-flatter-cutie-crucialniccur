@@ -62,3 +62,9 @@ form.addEventListener("submit", (e) => {
   // clear the whole form
   document.querySelector("#votes-form").reset();
 });
+
+let resetBtn = document.querySelector("#reset-btn");
+resetBtn.addEventListener("click", (e) => {
+  //   console.log(e);
+  document.getElementById("vote-count").textContent = "0";
+});
