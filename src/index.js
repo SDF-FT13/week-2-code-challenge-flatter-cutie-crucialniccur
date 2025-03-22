@@ -1,5 +1,9 @@
 // Your code here
+//access elements in global scope
 let bar = document.querySelector("#character-bar");
+let animalName = document.querySelector("#name");
+let animalImage = document.querySelector("#image");
+
 fetch("http://localhost:3000/characters")
   .then((res) => res.json())
   .then((data) => {
