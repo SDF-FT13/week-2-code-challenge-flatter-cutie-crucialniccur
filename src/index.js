@@ -6,8 +6,8 @@ let animalImage = document.querySelector("#image"); // console.log(animalImage);
 // select p and img in the detailed info
 let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
-let form = document.querySelector("#votes-form");
-// console.log(form);
+let form = document.querySelector("#votes-form"); // console.log(form);
+let voteCounter = document.querySelector("#vote-count").textContent; // console.log(voteCounter);
 
 //the fetch
 fetch("http://localhost:3000/characters")
@@ -39,6 +39,5 @@ form.addEventListener("submit", (e) => {
   //   console.log(e.target);
   votes = document.querySelector("#votes").value; //  console.log(votes);
   //   input = votes.value;
-
   //   console.log(votes.value);
 });
