@@ -7,7 +7,7 @@ let animalImage = document.querySelector("#image"); // console.log(animalImage);
 let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
 let form = document.querySelector("#votes-form"); // console.log(form);
-let voteCounter = document.querySelector("#vote-count").textContent; // console.log(voteCounter);
+// let voteCounter = document.querySelector("#vote-count").textContent;
 
 //the fetch
 fetch("http://localhost:3000/characters")
@@ -37,7 +37,19 @@ fetch("http://localhost:3000/characters")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //   console.log(e.target);
-  votes = document.querySelector("#votes").value; //  console.log(votes);
+  //   let votes = document.querySelector("#votes").value;
+  // get value of votes , should be a number
+  let votes = parseInt(document.querySelector("#votes").value) || 0;
+  let voteCounter = document.querySelector("#vote-count");
+  // update voteCounter value based on the input from user
+  voteCounter.textContent = votes;
+
+  //   let voteCounter = document.querySelector("#vote-count").textContent;
+  //   voteCounter.textContent = votes;
+  console.log(voteCounter);
+  console.log(votes);
+
   //   input = votes.value;
   //   console.log(votes.value);
+  //   votes = voteCounter;
 });
