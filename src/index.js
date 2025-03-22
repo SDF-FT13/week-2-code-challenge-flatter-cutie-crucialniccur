@@ -1,11 +1,13 @@
 // Your code here
 //access elements in global scope
 let bar = document.querySelector("#character-bar");
-let animalName = document.querySelector("#name");
-// console.log(animalName);
-let animalImage = document.querySelector("#image");
-// console.log(animalImage);
+let animalName = document.querySelector("#name"); // console.log(animalName);
+let animalImage = document.querySelector("#image"); // console.log(animalImage);
+// select p and img in the detailed info
+let infoP = document.querySelector("#name"); // console.log(infoP);
+let infoImg = document.querySelector("#image"); // console.log(infoImg);
 
+//the fetch
 fetch("http://localhost:3000/characters")
   .then((res) => res.json())
   .then((data) => {
