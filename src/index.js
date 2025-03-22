@@ -55,4 +55,7 @@ form.addEventListener("submit", (e) => {
 
   // clearing the form input
   document.querySelector("#votes").value = "";
+
+  // clear the whole form
+  document.querySelector("#votes-form").reset();
 });
