@@ -21,7 +21,9 @@ fetch("http://localhost:3000/characters")
 
       //add event listeners to the spans
       span.addEventListener("click", (e) => {
-        console.log(e.target.textContent);
+        // console.log(e.target.textContent);
+        infoP.textContent = item.name;
+        infoImg.src = item.image;
       });
     });
   })
