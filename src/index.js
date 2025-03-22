@@ -53,6 +53,6 @@ form.addEventListener("submit", (e) => {
   //   console.log(votes.value);
   //   votes = voteCounter;
 
-  // clearing the form
+  // clearing the form input
   document.querySelector("#votes").value = "";
 });
