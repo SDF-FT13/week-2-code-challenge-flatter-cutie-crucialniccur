@@ -37,7 +37,22 @@ fetch("http://localhost:3000/characters")
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   //   console.log(e.target);
-  let votes = document.querySelector("#votes").value;
+  // let votes = document.querySelector("#votes").value;
+  // let voteCounter = document.querySelector("#vote-count");
+
+  // voteCounter.textContent = votes;
+  // document.querySelector("#votes").value = "";
+  // document.querySelector("#votes-form").reset();
+
+  /// draw the line here
+  let voteInput = parseInt(document.querySelector("#votes").value) || 0;
+  let voteCounter = document.querySelector("#vote-count");
+
+  let currentVotes = parseInt(voteCounter.textContent) || 0;
+  voteCounter.textContent = currentVotes + voteInput;
+
+  document.querySelector("#votes").value = "";
+  document.querySelector("#votes-form").reset();
   // get value of votes , should be a number
   //   let votes = parseInt(document.querySelector("#votes").value) || 0;
   //   let voteCounter = document.querySelector("#vote-count");
@@ -45,9 +60,6 @@ form.addEventListener("submit", (e) => {
   //   voteCounter.textContent = votes;
 
   //   let voteCounter = document.querySelector("#vote-count").textContent;
-  let voteCounter = document.querySelector("#vote-count");
-
-  voteCounter.textContent = votes;
 
   //   console.log(votes);
   //   console.log(voteCounter);
@@ -57,10 +69,8 @@ form.addEventListener("submit", (e) => {
   //   votes = voteCounter;
 
   // clearing the form input
-  document.querySelector("#votes").value = "";
 
   // clear the whole form
-  document.querySelector("#votes-form").reset();
 });
 
 let resetBtn = document.querySelector("#reset-btn");
