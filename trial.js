@@ -65,3 +65,28 @@ form.addEventListener("submit", (e) => {
   // reset form input
   document.querySelector("#votes").value = "";
 });
+
+// reset buttons
+let resetBtn = document.querySelector("#reset-btn");
+
+resetBtn.addEventListener("click", () => {
+  if (!currentCharacterId) {
+    alert("Select a character first!");
+    return;
+  }
+
+  voteCountSpan.textContent = 0;
+
+  fetch(`http://localhost:3000/characters/${currentCharacterId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ votes: 0 }),
+  })
+    .then((res) => res.json())
+    .then((updatedData) => console.log("Votes reset succescful:", updatedData))
+    .catch((error) => {
+      console.log(error);
+    });
+});
