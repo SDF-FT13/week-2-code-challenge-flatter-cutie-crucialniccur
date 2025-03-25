@@ -9,3 +9,15 @@ let voteCountSpan = document.querySelector("#vote-count");
 let form = document.querySelector("#votes-form");
 
 let currentCharacterId = null; // Store selected character ID
+
+// fetch and display characters
+fetch("http://localhost:3000/characters")
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((item) => {
+      // create span
+      let span = document.createElement("span");
+      span.textContent = item.name;
+      bar.appendChild(span);
+    });
+  });
