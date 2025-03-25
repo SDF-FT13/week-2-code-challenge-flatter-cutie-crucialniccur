@@ -48,3 +48,17 @@ resetBtn.addEventListener("click", (e) => {
   //   console.log(e);
   document.getElementById("vote-count").textContent = "0";
 });
+
+// the patch
+fetch("http://localhost:3000/characters", {
+  method: "PATCH",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    votes: newVote,
+  }),
+})
+  .then((res) => res.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
