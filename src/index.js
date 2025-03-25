@@ -76,7 +76,24 @@ form.addEventListener("submit", (e) => {
 });
 
 // patch
-
+submitVotes.addEventListener("click", (e) => {
+  // console.log(e.target);
+  let toPatch = document.querySelector("#votes");
+  let newVote = parseInt(toPatch.value);
+  console.log(toPatch.value);
+  fetch("http://localhost:3000/characters", {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ votes: newVote }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Vote Updated ~", data);
+    })
+    .catch((error) => console.error("An error, !", error));
+});
 let resetBtn = document.querySelector("#reset-btn");
 resetBtn.addEventListener("click", (e) => {
   //   console.log(e);
