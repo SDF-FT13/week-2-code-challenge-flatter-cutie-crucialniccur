@@ -14,10 +14,22 @@ let currentCharacterId = null; // Store selected character ID
 fetch("http://localhost:3000/characters")
   .then((res) => res.json())
   .then((data) => {
-    data.forEach((item) => {
-      // create span
-      let span = document.createElement("span");
-      span.textContent = item.name;
-      bar.appendChild(span);
-    });
+    data
+      .forEach((item) => {
+        // create span
+        let span = document.createElement("span");
+        span.textContent = item.name;
+        bar.appendChild(span);
+
+        span.addEventListener("click", () => {
+          infoP.textContent = item.name;
+          infoImg.src = item.image;
+
+          voteCountSpan.textContent = item.votes;
+          currentCharacterId = item.id;
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   });
