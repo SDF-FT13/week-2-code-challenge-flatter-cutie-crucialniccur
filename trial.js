@@ -33,3 +33,8 @@ fetch("http://localhost:3000/characters")
         console.error(error);
       });
   });
+
+// a submit event listener to the form
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
