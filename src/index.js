@@ -7,8 +7,8 @@ let animalImage = document.querySelector("#image"); // console.log(animalImage);
 let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
 let form = document.querySelector("#votes-form"); // console.log(form);
-let voteCountSpan = document.querySelector("#vote-count");
-voteCountSpan.textContent = "";
+// let voteCountSpan = document.querySelector("#vote-count");
+// voteCountSpan.textContent = "";
 // let voteCounter = document.querySelector("#vote-count").textContent;
 
 //the fetch
