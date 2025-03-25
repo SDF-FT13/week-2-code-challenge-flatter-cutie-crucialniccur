@@ -8,6 +8,8 @@ let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
 let form = document.querySelector("#votes-form"); // console.log(form);
 // let voteCounter = document.querySelector("#vote-count").textContent;
+let submitVotes = document.querySelector("#submit");
+// console.log(submitVotes);
 
 //the fetch
 fetch("http://localhost:3000/characters")
@@ -72,6 +74,8 @@ form.addEventListener("submit", (e) => {
 
   // clear the whole form
 });
+
+// patch
 
 let resetBtn = document.querySelector("#reset-btn");
 resetBtn.addEventListener("click", (e) => {
