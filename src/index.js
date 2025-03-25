@@ -14,16 +14,11 @@ fetch("http://localhost:3000/characters")
   .then((res) => res.json())
   .then((data) => {
     data.forEach((item) => {
-      //create span element for each item
       let span = document.createElement("span");
-      // set names from the fetch as textcontent
       span.textContent = item.name;
-      //append span to bar as child
       bar.appendChild(span);
 
-      //add event listeners to the spans
       span.addEventListener("click", (e) => {
-        // console.log(e.target.textContent);
         infoP.textContent = item.name;
         infoImg.src = item.image;
       });
@@ -36,13 +31,6 @@ fetch("http://localhost:3000/characters")
 // add a submit event listener to the form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //   console.log(e.target);
-  // let votes = document.querySelector("#votes").value;
-  // let voteCounter = document.querySelector("#vote-count");
-
-  // voteCounter.textContent = votes;
-  // document.querySelector("#votes").value = "";
-  // document.querySelector("#votes-form").reset();
 
   /// draw the line here
   let voteInput = parseInt(document.querySelector("#votes").value) || 0;
@@ -53,24 +41,6 @@ form.addEventListener("submit", (e) => {
 
   document.querySelector("#votes").value = "";
   document.querySelector("#votes-form").reset();
-  // get value of votes , should be a number
-  //   let votes = parseInt(document.querySelector("#votes").value) || 0;
-  //   let voteCounter = document.querySelector("#vote-count");
-  // update voteCounter value based on the input from user
-  //   voteCounter.textContent = votes;
-
-  //   let voteCounter = document.querySelector("#vote-count").textContent;
-
-  //   console.log(votes);
-  //   console.log(voteCounter);
-
-  //   input = votes.value;
-  //   console.log(votes.value);
-  //   votes = voteCounter;
-
-  // clearing the form input
-
-  // clear the whole form
 });
 
 let resetBtn = document.querySelector("#reset-btn");
