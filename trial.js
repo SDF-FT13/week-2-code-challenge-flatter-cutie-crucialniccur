@@ -62,4 +62,6 @@ form.addEventListener("submit", (e) => {
     .catch((error) => {
       console.log(error);
     });
+  // reset form input
+  document.querySelector("#votes").value = "";
 });
