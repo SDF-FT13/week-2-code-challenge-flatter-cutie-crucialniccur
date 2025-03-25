@@ -37,4 +37,29 @@ fetch("http://localhost:3000/characters")
 // a submit event listener to the form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  if (!currentCharacterId) {
+    alert("Please select a character first!!");
+    return;
+  }
+
+  let currentVote = parseInt(voteCountSpan.textContent) || 0;
+  let VoteInput = parseInt(document.querySelector("#votes").value) || 0;
+  let totalVote = currentVote + VoteInput;
+
+  voteCountSpan.textContent = totalVote;
+
+  // patch
+  fetch(`http://localhost:3000/characters/${currentCharacterId}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ votes: totalVote }),
+  })
+    .then((res) => res.json())
+    .then((updatedData) => console.log("Updated votes:", updatedData))
+    .catch((error) => {
+      console.log(error);
+    });
 });
