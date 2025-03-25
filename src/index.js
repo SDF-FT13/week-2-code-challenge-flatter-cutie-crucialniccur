@@ -7,6 +7,8 @@ let animalImage = document.querySelector("#image"); // console.log(animalImage);
 let infoP = document.querySelector("#name"); // console.log(infoP);
 let infoImg = document.querySelector("#image"); // console.log(infoImg);
 let form = document.querySelector("#votes-form"); // console.log(form);
+// let voteCountSpan = document.querySelector("#vote-count");
+// voteCountSpan.textContent = "";
 // let voteCounter = document.querySelector("#vote-count").textContent;
 let submitVotes = document.querySelector("#submit");
 // console.log(submitVotes);
@@ -16,16 +18,11 @@ fetch("http://localhost:3000/characters")
   .then((res) => res.json())
   .then((data) => {
     data.forEach((item) => {
-      //create span element for each item
       let span = document.createElement("span");
-      // set names from the fetch as textcontent
       span.textContent = item.name;
-      //append span to bar as child
       bar.appendChild(span);
 
-      //add event listeners to the spans
       span.addEventListener("click", (e) => {
-        // console.log(e.target.textContent);
         infoP.textContent = item.name;
         infoImg.src = item.image;
       });
@@ -45,7 +42,22 @@ form.addEventListener("submit", (e) => {
 
   let currentVotes = parseInt(voteCounter.textContent) || 0;
   voteCounter.textContent = currentVotes + voteInput;
+  let newVotes = currentVotes + voteInput;
 
+  fetch("http://localhost:3000/characters/1", {
+    method: "PATCH",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({ votes: newVotes }),
+  })
+    .then((res) => res.json())
+    .then((updatedData) => console.log(updatedData))
+    .catch((error) => {
+      console.log(error);
+    });
+
+  //resetting
   document.querySelector("#votes").value = "";
   document.querySelector("#votes-form").reset();
 });
@@ -75,3 +87,19 @@ resetBtn.addEventListener("click", (e) => {
   //   console.log(e);
   document.getElementById("vote-count").textContent = "0";
 });
+
+// the patch
+// let previousVote = document.querySelector("#vote-count");
+// console.log(previousVote.textContent);
+// fetch("http://localhost:3000/characters", {
+//   method: "PATCH",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify({
+//     // votes: newVote,
+//   }),
+// })
+//   .then((res) => res.json())
+//   .then((data) => console.log(data))
+//   .catch((error) => console.error(error));
