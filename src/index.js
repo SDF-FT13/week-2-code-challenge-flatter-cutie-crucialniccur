@@ -38,13 +38,6 @@ fetch("http://localhost:3000/characters")
 // add a submit event listener to the form
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  //   console.log(e.target);
-  // let votes = document.querySelector("#votes").value;
-  // let voteCounter = document.querySelector("#vote-count");
-
-  // voteCounter.textContent = votes;
-  // document.querySelector("#votes").value = "";
-  // document.querySelector("#votes-form").reset();
 
   /// draw the line here
   let voteInput = parseInt(document.querySelector("#votes").value) || 0;
@@ -55,33 +48,16 @@ form.addEventListener("submit", (e) => {
 
   document.querySelector("#votes").value = "";
   document.querySelector("#votes-form").reset();
-  // get value of votes , should be a number
-  //   let votes = parseInt(document.querySelector("#votes").value) || 0;
-  //   let voteCounter = document.querySelector("#vote-count");
-  // update voteCounter value based on the input from user
-  //   voteCounter.textContent = votes;
-
-  //   let voteCounter = document.querySelector("#vote-count").textContent;
-
-  //   console.log(votes);
-  //   console.log(voteCounter);
-
-  //   input = votes.value;
-  //   console.log(votes.value);
-  //   votes = voteCounter;
-
-  // clearing the form input
-
-  // clear the whole form
 });
 
 // patch
 submitVotes.addEventListener("click", (e) => {
   // console.log(e.target);
   let toPatch = document.querySelector("#votes");
-  let newVote = parseInt(toPatch.value);
-  console.log(toPatch.value);
-  fetch("http://localhost:3000/characters", {
+  let newVote = parseInt(toPatch.value, 10);
+  // let animalVote = e.votes;
+  let characterId = toPatch.data.vote;
+  fetch(`http://localhost:3000/characters/${animalVote}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
